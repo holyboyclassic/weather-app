@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weatherly</title>
+    <meta name="description" content="A simple weather dashboard"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Weather dashboard</p>
+          <h1>Weatherly</h1>
+        </div>
+        <button id="locationButton" class="secondary-button" type="button">
+          Use my location
+        </button>
+      </header>
+
+      <form id="searchForm" class="search-bar" autocomplete="off">
+        <label class="sr-only" for="cityInput">Search city</label>
+        <input
+          id="cityInput"
+          name="city"
+          type="text"
+          placeholder="Search for a city"
+          aria-label="Search for a city"
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      <main class="content">
+        <section id="currentWeather" class="current-panel" aria-live="polite">
+          <div class="weather-main">
+            <div>
+              <p id="locationName" class="location-name">Loading…</p>
+              <p id="currentDate" class="current-date"></p>
+            </div>
+            <div id="conditionBadge" class="condition-badge" aria-label="Weather condition">
+              <span id="conditionIcon" class="condition-icon">☀️</span>
+              <span id="conditionText">—</span>
+            </div>
+          </div>
+
+          <div class="temperature-row">
+            <div class="temperature-wrap">
+              <span id="currentTemp" class="current-temp">--°</span>
+              <span id="feelsLike" class="feels-like">Feels like --°</span>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <span class="stat-label">Humidity</span>
+              <strong id="humidityValue">--%</strong>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Wind</span>
+              <strong id="windValue">-- km/h</strong>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Sunrise</span>
+              <strong id="sunriseValue">--:--</strong>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Sunset</span>
+              <strong id="sunsetValue">--:--</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="forecast-panel">
+          <div class="section-heading">
+            <h2>Hourly forecast</h2>
+          </div>
+          <div id="hourlyForecast" class="hourly-grid"></div>
+        </section>
+
+        <section class="forecast-panel">
+          <div class="section-heading">
+            <h2>Next 5 days</h2>
+          </div>
+          <div id="dailyForecast" class="daily-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="hourlyTemplate">
+      <article class="hour-card">
+        <span class="hour-time"></span>
+        <span class="hour-icon" aria-hidden="true"></span>
+        <strong class="hour-temp"></strong>
+        <span class="hour-precip"></span>
+      </article>
+    </template>
+
+    <template id="dailyTemplate">
+      <article class="day-card">
+        <span class="day-name"></span>
+        <span class="day-icon" aria-hidden="true"></span>
+        <div class="day-temps">
+          <span class="day-max"></span>
+          <span class="day-min"></span>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
