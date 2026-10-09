@@ -24,7 +24,7 @@ cd "c:\Users\HomePC\Desktop\WEATHER APP"
 python -m http.server 8000
 ```
 
-Then visit http://localhost:8000 in your browser.
+weather-app-peach-xi-92.vercel.app
 
 ## Data source
 
